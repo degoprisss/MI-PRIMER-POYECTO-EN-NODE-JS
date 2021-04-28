@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header'); -%>
+
+    <body>
+        <div class="container">
+            <h1>Vista de accounts edition</h1>
+            <%- include('partials/footer'); -%>
+                <% accounts_types.forEach((value)=> { %>
+                    <form method="POST" action=/accounts_type_edit/<%=value.id%>>
+                        <div class="mb-3">
+                            <label for="inputName" class="form-label">Nombre del tipo de cuenta</label>
+                            <input type="text" class="form-control" id="inputName" name="name" value=<%=value.name%>>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="inputDescription" rows="3"
+                                name="description"><%= value.description%></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="/clients"><button class="btn btn-primary">Cancelar</button></a>
+                    </form>                    
+                    <% }); %>
+        </div>
+    </body>
+
+</html>

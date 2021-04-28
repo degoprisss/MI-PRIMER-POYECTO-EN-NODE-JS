@@ -1,4 +1,7 @@
 'use strict';
+
+const { ClientBase } = require("pg");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('accounts', {
@@ -12,7 +15,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       client_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: 'accounts_types',
+          key: 'id'
+        }
       },
       balance: {
         type: Sequelize.INTEGER
