@@ -82,7 +82,7 @@ app.post('/accounts_type_edit/:id', async (req, res) => {
             }
         });
         let results = await accounts_types.findAll({ raw: true })
-        res.redirect('/clients')
+        res.redirect('/')
     } catch {
         res.send('<h1>No se pudo Actualizar nada</h1>')
     }
@@ -97,7 +97,7 @@ app.get('/accounts_type_delete/:id', async (req, res) => {
                 id: id
             }
         });
-        res.redirect('/clients')
+        res.redirect('/')
     } catch {
         res.send('<h1>Error</h1>')
     }
@@ -107,7 +107,7 @@ app.post('/accounts_types', async (req, res) => {
     const { name, description, created_at, updated_at } = req.body;
     try {
         let results = await accounts_types.create({ name, description, created_at, updated_at })
-        res.redirect('/clients')
+        res.redirect('/')
     } catch {
         console.log(error)
         res.status(400).send('<h1>No se pudo agregar el tipo de cuenta</h1>')
