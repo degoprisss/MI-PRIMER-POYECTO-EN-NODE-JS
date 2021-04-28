@@ -9,16 +9,16 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
-app.get('/', async (req, res) => {
-    try {
-        let result = await accounts_types.findAll({raw: true, nest: true, include: ['accounts']})
-        console.log(result)
-        res.render('home')
-    } catch {
-        res.status(404).send('<h1>Error 404, No hemos podido entrar a inicio</h1>')
-        console.log(error)
-    }
-})
+// app.get('/', async (req, res) => {
+//     try {
+//         let result = await accounts_types.findAll({raw: true, nest: true, include: ['accounts']})
+//         console.log(result)
+//         res.render('home')
+//     } catch {
+//         res.status(404).send('<h1>Error 404, No hemos podido entrar a inicio</h1>')
+//         console.log(error)
+//     }
+// })
 
 app.get('/accounts_types', async (req, res) => {
     try {
@@ -29,7 +29,7 @@ app.get('/accounts_types', async (req, res) => {
     }
 })
 
-app.get('/clients',  async(req, res) => {
+app.get('/',  async(req, res) => {
     try {
         let results =  await accounts_types.findAll({ raw: true })
         // console.log(results)
