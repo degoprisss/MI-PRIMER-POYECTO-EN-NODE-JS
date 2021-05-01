@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/header');  -%>
+    <%- include('partials/headers/header');  -%>
 <body>
-    <h1>Vista de accounts types</h1>
-    <%- include('partials/footer'); -%>
+    <div class="container">
+        <h1>Listado de los tipos de cuenta</h1>
+    <%- include('partials/accounts/accounts_type_form'); -%> 
+    <a href="/"><button type="button" class="btn btn-info">Regresar a inicio</button></a>
+    <%- include('partials/accounts/accounts_type_table'); -%> 
+    </div>
 </body>
 </html>

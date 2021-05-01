@@ -9,7 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       account_ori: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
+        references: {
+          model: 'accounts', 
+          key: 'id'
+        }
       },
       account_des: {
         type: Sequelize.INTEGER
@@ -18,7 +22,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       transaction_type: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
+        references: {
+          model: 'transactions_types', 
+          key: 'id'
+        }
       },
       trans_data: {
         type: Sequelize.DATE

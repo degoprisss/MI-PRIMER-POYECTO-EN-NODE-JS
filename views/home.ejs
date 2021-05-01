@@ -1,8 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/header');  -%>
-<body>
-    <h1>Vista de home</h1>
-    <%- include('partials/footer'); -%>
-</body>
+<%- include('partials/headers/header'); -%>
+
+    <body>
+        <div class="container">
+            <h1 style="text-align: center;">Bienvenido a BankAcademlo!</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de clientes</h5>
+                            <a href="/clients" class="btn btn-primary">Conocer el listado</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Listado de cuentas</h5>
+                            <a href="/accounts" class="btn btn-primary">Conocer el listado</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Listado de tipo de transacciones</h5>
+                            <a href="/transactionsType" class="btn btn-primary">Conocer el listado</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de tipos de cuenta</h5>
+                            <a href="/accounts_types" class="btn btn-primary">Conocer el listado</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
 </html>

@@ -6,7 +6,13 @@ module.exports = (sequelize, DataTypes) => {
   class accounts extends Model {
     static associate(models) {
       accounts.belongsTo(models.accounts_types, {
-        foreignKey: 'account_no'
+        foreignKey: 'type'
+      });
+      accounts.hasMany(models.transactions, {
+        foreignKey: 'account_ori'
+      });
+      accounts.belongsTo(models.clients, {
+        foreignKey: 'client_id'
       })
     }
   };

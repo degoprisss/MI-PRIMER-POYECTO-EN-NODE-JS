@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/headers/header');  -%>
+<body>
+    <div class="container">
+        <% clients.forEach((value) => { %>
+            <h1>Actualizando un cliente</h1>
+            <form method="POST" action=/clients_edit/<%=value.id%>>
+                <div class="mb-3">
+                  <label for="inputFirstName" class="form-label">Escriba su nombre completo</label>
+                  <input type="text" class="form-control" id="inputFirstName" name="first_name" value=<%= value.first_name%>>
+                </div>
+                <div class="mb-3">
+                    <label for="inputLastName" class="form-label">Escriba sus apellidos</label>
+                    <input type="text" class="form-control" id="inputLastName" name="last_name" value=<%= value.last_name%>>
+                </div>
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Su correo electronico</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" value=<%= value.email%>>
+                </div>
+                <div class="mb-3">
+                  <label for="inpuTelephone" class="form-label">Su numero teléfonico</label>
+                  <input type="number" class="form-control" id="inpuTelephone" name="telephone" value=<%= value.telephone%>>
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="/clients"><button class="btn btn-primary">Cancelar</button></a>
+              </form>
+        <% }) %>
+    <%- include('partials/headers/footer'); -%>
+    </div>
+</body>
+</html>

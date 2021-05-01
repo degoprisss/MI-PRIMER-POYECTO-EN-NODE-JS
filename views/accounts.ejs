@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/headers/header');  -%>
+<body>
+    <div class="container">
+        <h1>Listado de cuentas</h1>
+    <%- include('partials/headers/footer'); -%>
+    <form action="/accounts" method="POST">
+        <div class="mb-3">
+            <label for="inputNumberAccounts" class="form-label">Numero de cuenta</label>
+            <input type="number" class="form-control" id="inputNumberAccounts" name="account_no">
+        </div>
+        <div class="form-group">
+            <label for="selectClient">Cliente asociado a esta cuenta</label>
+            <select class="form-control" id="selectClient" name='client_id1'>
+                <option selected>Seleccione un cliente</option> 
+                <% typeClients.forEach((value)=> { %>
+                    <option><%=value.id%> <%=value.first_name%> <%=value.last_name%></option> 
+                <% }); %> 
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="inputBalance" class="form-label">Saldo</label>
+            <input type="number" class="form-control" id="inputBalance" name="balance">
+        </div>
+        <div class="form-group">
+            <label for="TypeAccounts">Tipo de cuenta</label>
+            <select class="form-control" id="TypeAccounts" name="type1">
+                <option selected>Seleccione el tipo de cuenta</option>
+                <% typeAccounts.forEach((value)=> { %>
+                    <option><%=value.id%> <%=value.name%></option>  
+                <% }); %> 
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar la cuenta</button>
+        </div>
+    </form> 
+    <div class="card text-white bg-dark mb-3 container" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Nota importante</h5>
+          <p class="card-text">Querido usuario, tenga presente que al eliminar una 
+              cuenta eliminare al mismo tiempo el registro de todas las transacciones asociadas a esa cuenta.
+              Y al momento de crear una nueva cuenta no olvide dejar campos sin llenar, ya que de lo contrario
+              no se creará la cuenta.
+            </p>
+        </div>
+      </div>
+      <a href="/"><button type="button" class="btn btn-info">Regresar a inicio</button></a>
+    <%- include('partials/accounts2/accounts_table'); -%> 
+    </div>
+</body>
+</html>

@@ -5,9 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class clients extends Model {
     static associate(models) {
-      this.belongsTo(models.accounts, {
+      clients.hasMany(models.accounts, {
         foreignKey: 'client_id'
-      })
+      });
     }
   };
   clients.init({

@@ -3,12 +3,12 @@
 <%- include('partials/headers/header'); -%>
     <body>
         <div class="container">
-            <h1>Actualizando el tipo de cuenta</h1>
+            <h1>Actualizaciand un tipo de transacción</h1>
             <%- include('partials/headers/footer'); -%>
-                <% accounts_types.forEach((value)=> { %>
-                    <form method="POST" action=/accounts_type_edit/<%=value.id%>>
+                <% transactionsType.forEach((value)=> { %>
+                    <form method="POST" action=/transactionsType_edit/<%=value.id%>>
                         <div class="mb-3">
-                            <label for="inputName" class="form-label">Nombre del tipo de cuenta</label>
+                            <label for="inputName" class="form-label">tipo de transacción</label>
                             <input type="text" class="form-control" id="inputName" name="name" value=<%=value.name%>>
                         </div>
                         <div class="mb-3">
@@ -16,7 +16,7 @@
                             <textarea class="form-control" id="inputDescription" rows="3"
                                 name="description"><%= value.description%></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                         <a href="/accounts_types"><button class="btn btn-primary">Cancelar</button></a>
                     </form>                    
                     <% }); %>

@@ -16,9 +16,8 @@ module.exports = {
       },
       client_id: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
         references: {
-          model: 'accounts_types',
+          model: 'clients',
           key: 'id'
         }
       },
@@ -26,7 +25,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       type: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
+        references: {
+          model: 'accounts_types',
+          key: 'id'
+        }
       },
       created_at: {
         allowNull: false,

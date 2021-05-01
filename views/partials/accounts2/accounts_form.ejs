@@ -1,0 +1,29 @@
+<form action="/accounts_types" method="POST">
+    <div class="mb-3">
+        <label for="inputNumberAccounts" class="form-label">Numero de cuenta</label>
+        <input type="number" class="form-control" id="inputNumberAccounts" name="account_no">
+    </div>
+    <div class="form-group">
+        <label for="selectClient">Cliente asociado a esta cuenta</label>
+        <select class="form-control" id="selectClient" name='client_id'>
+            <option selected>Seleccione un cliente</option>
+            <% clients.forEach((value) => { %>
+                <option><%= value.type%></option>
+            <%> }) %>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="inputBalance" class="form-label">Saldo</label>
+        <input type="number" class="form-control" id="inputBalance" name="balance">
+    </div>
+    <div class="form-group">
+        <label for="TypeAccounts">Tipo de cuenta</label>
+        <select class="form-control" id="TypeAccounts" name="type">
+            <option selected>Seleccione el tipo de cuenta</option>
+            <option>1</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar la cuenta</button>
+    </div>
+</form>

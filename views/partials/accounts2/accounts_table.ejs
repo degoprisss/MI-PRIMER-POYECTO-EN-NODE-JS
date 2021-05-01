@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Numero de cuenta</th>
+        <th scope="col">Cliente asociado</th>
+        <th scope="col">Saldo</th>
+        <th scope="col">Tipo de cuenta</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% search.forEach((value) => { %>
+            <tr>
+                <th scope="row"><%= value.id%></th>
+                <td><%= value.account_no%></td>
+                <td><%= value.client.first_name%> <%= value.client.last_name%></td>
+                <td><%= value.balance%></td>
+                <td><%= value.accounts_type.name%></td>
+                <td>
+                  <a href=accounts_delete/<%= value.id %>>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                  </a>
+                </td>
+            </tr> 
+        <% }); %>
+    </tbody>
+  </table>
