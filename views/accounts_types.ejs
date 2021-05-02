@@ -6,6 +6,15 @@
         <h1>Listado de los tipos de cuenta</h1>
     <%- include('partials/accounts/accounts_type_form'); -%> 
     <a href="/"><button type="button" class="btn btn-info">Regresar a inicio</button></a>
+    <div class="card text-white bg-dark mb-3 container" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Nota importante</h5>
+          <p class="card-text">Querido usuario, tenga presente que al eliminar una 
+              cuenta eliminará al mismo tiempo el registro de todas las cuentas asociadas a este
+              tipo de cuenta!
+            </p>
+        </div>
+      </div>
     <%- include('partials/accounts/accounts_type_table'); -%> 
     </div>
 </body>

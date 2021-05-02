@@ -100,6 +100,7 @@ app.get('/accounts_type_delete/:id', async (req, res) => {
     console.log(req.params.id)
     try {
         let id = req.params.id
+        await accounts.destroy({where: {id: id}})
         let dele = await accounts_types.destroy({
             where: {
                 id: id
@@ -279,7 +280,7 @@ app.post('/accounts', async (req, res) => {
         res.redirect('/accounts');
     } catch (error) {
         console.log(error)
-        res.status(404).send('<h1>Error 404, Algo no salío bien!</h1>')
+        res.status(404).send('<h1>Debe llenar todos los campos!</h1>')
     }
 })
 
