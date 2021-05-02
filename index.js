@@ -100,9 +100,9 @@ app.get('/accounts_type_delete/:id', async (req, res) => {
     console.log(req.params.id)
     try {
         let id = req.params.id
-        let asoc = await accounts.findAll({raw: true, where: {type: id}})
+        let asoc = await accounts.findAll({raw: true, where: {id: id}})
         if (asoc.length != 0) {
-            await accounts.destroy({where: {id: id}})
+            await accounts.destroy({where: {type: id}})
         }
         let dele = await accounts_types.destroy({
             where: {
