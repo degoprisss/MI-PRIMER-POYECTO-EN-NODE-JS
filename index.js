@@ -100,7 +100,10 @@ app.get('/accounts_type_delete/:id', async (req, res) => {
     console.log(req.params.id)
     try {
         let id = req.params.id
-        await accounts.destroy({where: {id: id}})
+        let asoc = await accounts.findAll({raw: true, where: {id: id}})
+        if (asoc.length != 0) {
+            await accounts.destroy({where: {id: id}})
+        }
         let dele = await accounts_types.destroy({
             where: {
                 id: id
@@ -288,7 +291,10 @@ app.post('/accounts', async (req, res) => {
 app.get('/accounts_delete/:id', async (req, res) => {
     try {
         let id = req.params.id;
-        await transactions.destroy({where: {id: id}})
+        let asoc = await transactions.findAll({raw: true, where: {id: id}})
+        if (asoc.length != 0) {
+            await transactions.destroy({where: {id: id}})
+        }
         await accounts.destroy({where: {id: id}})
         res.redirect('/accounts')
     } catch (error) {
