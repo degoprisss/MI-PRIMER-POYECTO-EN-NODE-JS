@@ -100,7 +100,8 @@ app.get('/accounts_type_delete/:id', async (req, res) => {
     console.log(req.params.id)
     try {
         let id = req.params.id
-        let asoc = await accounts.findAll({raw: true, where: {id: id}})
+        let asoc = await accounts.findAll({raw: true, where: {type: id}})
+        console.log(asoc.length);
         if (asoc.length != 0) {
             await accounts.destroy({where: {type: id}})
         }
@@ -178,6 +179,11 @@ app.post('/clients_edit/:id', async (req, res) => {
 app.get('/clients_delete/:id', async (req, res) => {
     try {
         let id = req.params.id
+        let asoc = await accounts.findAll({raw: true, where: {client_id: id}})
+        console.log(asoc.length)
+        if (asoc.length != 0) {
+            await accounts.destroy({where: {client_id: id}})
+        }
         let deleteClients = await clients.destroy({where: {id: id}})
         res.redirect('/clients')
     } catch (error) {
@@ -291,10 +297,10 @@ app.post('/accounts', async (req, res) => {
 app.get('/accounts_delete/:id', async (req, res) => {
     try {
         let id = req.params.id;
-        let asoc = await transactions.findAll({raw: true, where: {id: id}})
-        if (asoc.length != 0) {
-            await transactions.destroy({where: {account_ori: id}})
-        }
+        // let asoc = await transactions.findAll({raw: true, where: {id: id}})
+        // if (asoc.length != 0) {
+        //     await transactions.destroy({where: {account_ori: id}})
+        // }
         await accounts.destroy({where: {id: id}})
         res.redirect('/accounts')
     } catch (error) {
