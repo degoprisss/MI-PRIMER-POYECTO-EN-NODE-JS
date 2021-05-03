@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       account_no: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       client_id: {
         type: Sequelize.INTEGER,
@@ -22,7 +22,7 @@ module.exports = {
         }
       },
       balance: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       type: {
         type: Sequelize.INTEGER, 
